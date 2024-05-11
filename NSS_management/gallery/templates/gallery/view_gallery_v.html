@@ -1,0 +1,42 @@
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GALLERY</title>
+</head>
+<body>
+<center>
+	<h1>GALLERY</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Event</td>
+            <td style="color: black">Nature of Event</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">images</td>
+    		<td style="color: black">videos</td>
+    	</tr>
+        {% for i in x %}
+        <tr style="color: white">
+
+            <td>{{ i.event.e_name }}</td>
+            <td>{{ i.event.e_nature}}</td>
+            <td>{{ i.event.date }}</td>
+             <td><a href="/static/{{ i.images }}"><img src="/static/{{ i.images }}" width="50" height="50"></a></td>
+            <td><a href="/static/{{ i.images2 }}"><img src="/static/{{ i.images2 }}" width="50" height="50"></a></td>
+            <td><a href="/static/{{ i.images3 }}"><img src="/static/{{ i.images3 }}" width="50" height="50"></a></td>
+
+
+            <td><a href="/static/{{ i.videos }}">
+       <video controls="controls" width="100px;" height="100px;">
+           <source src="/static/{{ i.videos }}" type="video/mp4">
+       </video></a>
+    </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+</body>
+</html>
+{% endblock %}

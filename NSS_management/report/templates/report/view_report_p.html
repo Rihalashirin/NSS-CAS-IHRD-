@@ -1,0 +1,36 @@
+{% extends 'temp/main_principal.html' %}
+{% block base %}
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>ACTIVITY REPORT</title>
+</head>
+<body>
+<center>
+	<h1>ACTIVITY REPORT</h1>
+  <form method="post">
+            {% csrf_token %}
+            <td><input type="text" name="ev" placeholder="Enter event name"></td>
+            <td><input type="date" name="loc" placeholder="Enter event date"></td>
+            <td><input type="submit" value="search" ></td>
+        </form>
+     <table border="2" class="table table-striped">
+    	<tr style="color: black">
+            <th>Event</th>
+            <th>Date</th>
+    		<th>Report</th>
+    	</tr>
+        {% for i in x %}
+    	    <tr style="color: white">
+                <td>{{ i.event.e_name }}</td>
+                <td>{{ i.event.date }}</td>
+                <td><img src="/static/{{ i.report }}" width="50" height="50"></td>
+                <td><a href="/static/{{ i.report }}" class="btn btn-primary">View</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

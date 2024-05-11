@@ -1,0 +1,37 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>STAFF DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>STAFF DETAILS</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Department</td>
+    		<td style="color: black">Email</td>
+    		<td style="color: black">Contact no</td>
+    	</tr>
+        {% for i in d %}
+        <tr style="color: white">
+            <td>{{ i.name }}</td>
+            <td>{{ i.department }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.contact }}</td>
+            
+            <td><a href="/staff/self/{{ i.staff_id }}"class="btn btn-primary">Edit</a></td>
+
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+
+</center>
+
+</body>
+</html>
+{% endblock %}

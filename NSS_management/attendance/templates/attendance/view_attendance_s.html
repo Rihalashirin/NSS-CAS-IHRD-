@@ -1,0 +1,41 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VOLUNTEER ATTENDANCE</title>
+</head>
+<body>
+<center>
+	<h1>VOLUNTEER ATTENDANCE</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">Event</td>
+    		<td style="color: black">Nature of Event</td>
+    		<td style="color: black">Attendance</td>
+
+        </tr>
+        {% for i in x %}
+    	<tr>
+    		<td style="color: white">{{ i.volunteer.name}}</td>
+    		<td style="color: white">{{ i.event.date }}</td>
+    		<td style="color: white">{{ i.event.e_name}}</td>
+    		<td style="color: white">{{ i.event.e_nature }}</td>
+    		<td style="color: white">{{ i.attendance }}</td>
+    		
+    		<td><a href="/attendance/update_att/{{ i.attendance_id }}" class="btn btn-primary">Edit</a></td>
+            <td><a href="/attendance/ dellll/{{ i.attendance_id }}" class="btn btn-primary">Delete</a></td>
+{#            <td><a href="/points/points/{{ i.attendance_id }}/{{ i.volunteer_id }}" class="btn btn-primary">add points</a></td>#}
+
+    	</tr>
+        {% endfor %}
+
+    </table>
+
+</center>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>POINTS DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>POINTS DETAILS</h1>
+     <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Percentage</td>
+    		<td style="color: black">Points</td>
+    		
+    	</tr>
+        {% for i in x %}
+    	<tr>
+    		<td>{{ i.name}}</td>
+    		<td>{{ i.volunteer_attendance }}</td>
+    		<td>{{ i.points }}</td>
+    		
+    		
+    	</tr>
+        {% endfor %}
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

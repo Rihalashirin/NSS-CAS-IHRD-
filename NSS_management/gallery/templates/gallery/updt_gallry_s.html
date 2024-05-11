@@ -1,0 +1,65 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GALLERY</title>
+</head>
+<body>
+<center>
+	<h1>GALLERY</h1>
+	<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+		<table>
+            <tr style="color: black">
+				<td>Event:</td>
+				<td><select name="evnt" required>
+				<option value="{{ c.event_id }}">{{ c.event.e_name}}</option>
+                    {% for i in u %}
+                        <option value="{{ i.e_name }}">{{ i.e_name }}</option>
+                    {% endfor %}
+				</select></td>
+			</tr>
+			<tr style="color: black">
+				<td>Date:</td>
+				<td><input type="text" name="spdate" value="{{ c.event.date }}" required></td>
+			</tr>
+			<tr>
+				<td style="color: black">Image:</td>
+				<td><input type="file" name="img" value="{{ c.images }}"></td>
+                <td><a href="/static/{{c.images}}" > <img src="/static/{{c.images }}"  height="50px" width="50px"></a></td>
+
+			</tr>
+
+            <tr>
+                <td></td>
+                <td><input type="file" name="img2"></td>
+                <td><a href="/static/{{ c.images2 }}" > <img src="/static/{{ c.images2}}"  height="50px" width="50px"></a></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="file" name="img3"></td>
+                <td><a href="/static/{{ c.images3}}" > <img src="/static/{{c.images3}}"  height="50px" width="50px"></a></td>
+
+            </tr>
+
+			<tr >
+				<td style="color: black">Video:</td>
+				<td><input type="file" name="vid" value="{{ c.videos }}"></td>
+                <td><a href="/static/{{ c.videos}}" > <img src="/static/{{ c.videos }}"  height="50px" width="50px"></a></td>
+
+			</tr>
+			<tr style="color: black">
+				<td></td>
+				<td><input type="submit" name="atbtn" value="Update" class="btn btn-dark" style="border-radius: 7px"></td>
+			</tr>
+
+</table>
+</form>
+
+</center>
+
+</body>
+</html>
+{% endblock %}

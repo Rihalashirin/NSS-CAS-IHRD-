@@ -1,0 +1,48 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VOLUNTEER DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>VOLUNTEER</h1>
+  <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Department</td>
+    		<td style="color: black">Regno</td>
+    		<td style="color: black">Age</td>
+    		<td style="color: black">Gender</td>
+    		<td style="color: black">Year</td>
+            <td style="color: black">status</td>
+    	</tr>
+        {% for i in x %}
+    	<tr style="color: white">
+    		<td>{{ i.name }}</td>
+    		<td>{{ i.department }}</td>
+    		<td>{{ i.regno }}</td>
+    		<td>{{ i.age }}</td>
+    		<td>{{ i.gender }}</td>
+    		<td>{{ i.year }}</td>
+            <td>{{ i.status }}</td>
+            {% if i.status == 'Accepted' %}
+                <td><a href="/volunteer/reject/{{ i.volunteer_id }}"class="btn btn-primary">REJECT</a></td>
+            {% elif i.status == 'rejected' %}
+    		    <td><a href="/volunteer/accept/{{ i.volunteer_id }}"class="btn btn-primary">ACCEPT</a></td>
+            {% else %}
+                <td><a href="/volunteer/reject/{{ i.volunteer_id }}"class="btn btn-primary">REJECT</a></td>
+    		    <td><a href="/volunteer/accept/{{ i.volunteer_id }}"class="btn btn-primary">ACCEPT</a></td>
+
+            {% endif %}
+{#    		<td><a href="/volunteer/reject/{{ i.volunteer_id }}"class="btn btn-primary">REJECT</a></td>#}
+    	</tr>
+        {% endfor %}
+    </table>
+
+</center>
+
+</body>
+</html>
+{% endblock %}

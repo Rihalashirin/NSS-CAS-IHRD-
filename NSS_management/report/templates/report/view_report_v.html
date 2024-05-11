@@ -1,0 +1,32 @@
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>ACTIVITY REPORT</title>
+</head>
+<body>
+<center>
+	<h1>ACTIVITY REPORT</h1>
+     <table border="2" class="table table-striped">
+            <tr>
+                <th style="color: black">Event</th>
+                            <th style="color: black">Date</th>
+
+                <th style="color: black">Report</th>
+            </tr>
+        {% for i in x %}
+            <tr style="color: white">
+                <td>{{ i.event.e_name}}</td>
+                <td>{{ i.event.date }}</td>
+                <td>{{ i.report }}</td>
+                <td><a href="/static/{{ i.report }}"class="btn btn-primary">View</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

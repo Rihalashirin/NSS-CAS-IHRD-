@@ -1,0 +1,48 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ATTENDANCE DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>ATTENDANCE DETAILS</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Percentage</td>
+    		<td style="color: black">Performance</td>
+{#            <td style="color: black"></td>#}
+
+    	</tr>
+        {% for i in x %}
+         <tr>
+            <td style="color: white">{{ i.name}}</td>
+            <td style="color: white">{{ i.volunteer_attendance}}</td>
+             <td style="color: white">{{ i.performance}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+<table >
+     {% if max_volunteer %}
+    <tr  style="height: 50px;width: 90px">
+        <td style="color: white">Best Performer:</td>
+        <td></td>
+    </tr><tr>
+        <td style="color: white">
+            Volunteer ID : {{ max_volunteer.volunteer_id }} <br>
+            Name : {{ max_volunteer.name }} <br>
+            Score : {{ max_volunteer.performance }}</td>
+    </tr>
+    {% endif %}
+
+    </table>
+    
+
+</center>
+
+</body>
+</html>
+{% endblock %}

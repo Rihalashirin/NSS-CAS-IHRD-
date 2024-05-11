@@ -1,0 +1,33 @@
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COMPLAINTS</title>
+</head>
+<body>
+<center>
+	<h1>COMPLAINTS</h1>
+	<form method="post">
+        {% csrf_token %}
+		<table>
+			<tr>
+				<td style="color: black">Complaint:</td>
+                <td><textarea name="cmpl" required minlength="4" maxlength="500" class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="cbtn" value="submit" class="btn-dark" style="border-radius: 7px"></td>
+			</tr>
+</table>
+</form>
+    {% if msg %}
+        <script>
+        alert('Success')
+        </script>
+    {% endif %}
+</center>
+
+</body>
+</html>
+{% endblock %}

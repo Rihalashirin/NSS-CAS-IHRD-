@@ -1,0 +1,34 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>POINTS DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>POINTS DETAILS</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Percentage</td>
+    		<td style="color: black">Points</td>
+    		
+    	</tr>
+        {% for i in x %}
+    	<tr>
+    		<td>{{ i.volunteer.name }}</td>
+    		<td>{{ i.attendance.percentage }}</td>
+    		<td>{{ i.points }}</td>
+            <td><a href="/points/updt/{{ i.points_id }}">Update</a></td>
+            <td><a href="/points/ del/{{ i.points_id }}">Delete</a></td>
+    		
+    		
+    	</tr>
+        {% endfor %}
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>ACTIVITY REPORT</title>
+</head>
+<body>
+<center>
+	<h1>ACTIVITY REPORT</h1>
+ <form method="post">
+            {% csrf_token %}
+            <td><input type="text" name="search" placeholder="Search event"></td>
+     <td><input type="submit" value="search"></td>
+        </form>
+    <table border="2" class="table table-striped">
+    	<tr>
+            <th style="color: black">Event</th>
+            <th style="color: black">Date</th>
+    		<th style="color: black">Report</th>
+
+
+    	</tr>
+        {% for i in x %}
+    	    <tr style="color: white">
+                <td>{{ i.event.e_name }}</td>
+                <td>{{ i.event.date }}</td>
+                <td><img src="/static/{{ i.report }}" width="50" height="50"></td>
+                <td><a href="/static/{{ i.report }}" class="btn btn-primary">View</a></td>
+                <td><a href="/report/delete/{{ i.report_id }}" class="btn btn-primary">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

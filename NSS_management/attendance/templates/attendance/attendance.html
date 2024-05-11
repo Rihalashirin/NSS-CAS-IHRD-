@@ -1,0 +1,90 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ATTENDANCE DETAILS</title>
+</head>
+<body>
+<center>
+   <h1>ATTENDANCE DETAILS</h1>
+   <form method="post">
+        {% csrf_token %}
+      <table>
+         <tr>
+            <td style="color: black">Student Name:</td>
+                <td><input type="text" name="sn" value="{{ b.name }}" class="form-control"></td>
+{#          <td><select name="sn" required>#}
+{#             <option>----SELECT----</option>#}
+{#                    {% for i in v %}#}
+{#             <option value="{{ i.volunteer_id }}">{{ i.name }}</option>#}
+{#                     {% endfor %}#}
+{#          </select></td>#}
+         </tr>
+{#         <tr>#}
+{#            <td>Nature of Event:</td>#}
+{#            <td><select name="ne" required>#}
+{#               <option>----SELECT----</option>#}
+{#                    {% for i in k %}#}
+{#             <option value="Work">Work</option>#}
+{#             <option value="Programme">Programme</option>#}
+{#                    <option value="camp">camp</option>#}
+{#                        <option value="{{ i.event_id }}">{{ i.e_nature }}</option>#}
+{#                    {% endfor %}#}
+{#            </select></td>#}
+{#         </tr>#}
+         <tr>
+            <td style="color: black">Event:</td>
+            <td><select name="evt" required class="form-control">
+               <option>----SELECT----</option>
+                    {% for i in k %}
+               <option value="{{ i.event_id }}">{{ i.e_name }}</option>
+                    {% endfor %}
+            </select></td>
+         </tr>
+         <tr>
+            <td style="color: black">Date:</td>
+{#             {% for i in k %}#}
+            <td><input type="date" name="dt" required class="form-control"></td>
+{#             {% endfor %}#}
+         </tr>
+            <tr style="color:black">
+            <td>Attendance:</td>
+            <td><input type="radio" name="att" value="present" checked>present
+               <input type="radio" name="att" value="absent">absent</td>
+         </tr>
+        <tr>
+            <td style="color: black">Performance</td>
+            <td><select name="pr" class="form-control">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                </td>
+         </tr>
+
+         <tr>
+            <td></td>
+            <td><input type="submit" name="atbtn" value="submit" class="btn btn-dark" style="border-radius:7px">
+            </td>
+         </tr>
+
+</table>
+</form>
+            {% if msg == "ok" %}
+                <script>
+                    alert("Successfully added")
+                </script>
+                {% elif msg == "vv" %}
+                     <script>
+                     alert(" attendance already added")
+                     </script>
+            {% endif %}
+</center>
+
+</body>
+</html>
+{% endblock %}

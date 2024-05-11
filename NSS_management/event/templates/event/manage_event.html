@@ -1,0 +1,39 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EVENT DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>EVENT DETAILS</h1>
+    <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Event</td>
+            <td style="color: black">Nature of event</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">Time</td>
+    		<td style="color: black">Venue</td>
+    	</tr>
+        {% for i in x %}
+         <tr>
+            <td style="color: white">{{ i.e_name }}</td>
+            <td style="color: white">{{ i.e_nature }}</td>
+            <td style="color: white">{{ i.date }}</td>
+            <td style="color: white">{{ i.time }}</td>
+            <td style="color: white">{{ i.venue }}</td>
+            <td><a href="/event/evntupdtt/{{ i.event_id }}" class="btn btn-primary">Update</a></td>
+            <td><a href="/event/delete/{{ i.event_id }}"  class="btn btn-primary">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+
+</center>
+
+</body>
+</html>
+{% endblock %}

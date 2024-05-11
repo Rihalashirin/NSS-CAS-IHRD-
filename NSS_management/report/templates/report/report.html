@@ -1,0 +1,42 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REPORT DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>REPORT DETAILS</h1>
+	<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+		<table>
+			<tr style="color: black">
+				<td>Event:</td>
+				<td><select name="evnt" required class="form-control">
+				<option>----SELECT----</option>
+                    {% for i in x %}
+				<option value="{{ i.event_id }}">{{ i.e_name }}</option>
+                    {% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td style="color: black">Report:</td>
+				<td><input type="file" name="rfil" required></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="rbtn" value="submit" class="btn-dark" style="border-radius: 7px"></td>
+			</tr>
+</table>
+</form>
+{% if msg == 'ok' %}
+<script>
+    alert("submitted")
+</script>
+{% endif %}
+</center>
+
+</body>
+</html>
+{% endblock %}

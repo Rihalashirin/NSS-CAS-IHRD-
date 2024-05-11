@@ -1,0 +1,35 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>POINTS</title>
+</head>
+<body>
+<center>
+	<h1>POINTS DETAILS</h1>
+	<form method="post">
+        {% csrf_token %}
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" name="vname" value="{{ c.volunteer.name }}" required></td>
+			</tr>
+			<tr>
+				<td>percentage:</td>
+				<td><input type="text" name="per" value="{{ c.percentage }}" required></td>
+			</tr>
+			<tr>
+				<td>points:</td>
+				<td><input type="number" name="point" value="{{ c.points }}" required pattern="[0-9]"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="Update" value="Update"></td>
+			</tr>
+			
+</center>
+
+</body>
+</html>
+{% endblock %}

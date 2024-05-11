@@ -1,0 +1,61 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GALLERY</title>
+</head>
+<body>
+<center>
+	<h1>GALLERY</h1>
+	<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+		<table>
+            <tr style="color:black;">
+				<td>Event:</td>
+				<td><select name="evnt" required class="form-control">
+
+				<option>----SELECT----</option>
+                    {% for i in x %}
+				<option value="{{ i.event_id }}">{{ i.e_name }}</option>
+                    {% endfor %}
+				</select></td>
+			</tr>
+			<tr style="color: black">
+				<td>Date:</td>
+				<td><input type="Date" min="{{ dt }}" name="spdate" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td style="color: black">Image:</td>
+				<td><input type="file" name="img" required></td>
+			</tr>
+            <tr>
+                <td></td>
+                <td><input type="file" name="img2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="file" name="img3"></td>
+            </tr>
+
+			<tr>
+				<td style="color: black">Video:</td>
+				<td><input type="file" name="vid" ></td>
+			</tr>
+			<tr style="color: black">
+				<td></td>
+				<td><input type="submit" name="atbtn" value="submit" class="btn-dark" style="border-radius: 7px"></td>
+			</tr>
+</table>
+</form>
+{% if msg == 'ok' %}
+<script>
+    alert("uploaded")
+</script>
+{% endif %}
+
+</center>
+
+</body>
+</html>
+{% endblock %}

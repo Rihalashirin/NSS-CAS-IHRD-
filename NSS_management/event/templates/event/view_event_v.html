@@ -1,0 +1,37 @@
+
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EVENT DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>EVENT DETAILS</h1>
+     <table border="2" class="table table-striped">
+    	<tr>
+    		<td style="color: black">Event</td>
+            <td style="color: black">Nature of Event</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">Time</td>
+    		<td style="color: black">Venue</td>
+    	</tr>
+        {% for i in x %}
+         <tr style="color: white">
+            <td>{{ i.e_name }}</td>
+            <td>{{ i.e_nature }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.venue }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+
+</center>
+
+</body>
+</html>
+{% endblock %}

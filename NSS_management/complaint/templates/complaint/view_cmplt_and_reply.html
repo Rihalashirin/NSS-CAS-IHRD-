@@ -1,0 +1,34 @@
+{% extends 'temp/main_principal.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COMPLAINT DETAILS</title>
+</head>
+<body>
+<center>
+	<h1>COMPLAINT DETAILS</h1>
+     <table border="2" class="table table-striped">
+    	<tr>
+            <td style="color: black">Volunteer Name</td>
+    		<td style="color: black">Complaint</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">Time</td>
+    		<td style="color: black">Reply</td>
+    	</tr>
+        {% for i in x %}
+    	<tr>
+            <td style="color: white">{{ i.volunteer.name }}</td>
+    		<td style="color: white">{{ i.complaint }}</td>
+    		<td style="color: white">{{ i.date }}</td>
+    		<td style="color: white">{{ i.time }}</td>
+    		<td style="color: white">{{ i.reply }}</td>
+    		<td><a href="/complaint/replay/{{ i.complaint_id }}" class="btn btn-primary">REPLY</a></td>
+    	</tr>
+        {% endfor %}
+    </table>
+ </center>
+
+</body>
+</html>
+{% endblock %}

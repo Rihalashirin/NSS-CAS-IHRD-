@@ -1,0 +1,58 @@
+{% extends 'temp/main_volunteer.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UPDATE PROFILE</title>
+</head>
+<body>
+<center>
+	<h1>UPDATE PROFILE</h1>
+	<form method="post">
+        {% csrf_token %}
+		<table>
+			<tr style="color: black">
+				<td>Name:</td>
+				<td><input type="text" name="vnm" value="{{ c.name }}" required class="form-control"></td>
+			</tr>
+			<tr style="color: black">
+				<td>Department:</td>
+				<td><input type="text" name="vdpt" value="{{ c.department }}" required class="form-control"></td>
+			</tr>
+             <tr style="color: black">
+				<td>Age:</td>
+				<td><input type="number" name="vage" value="{{ c.age }}" required pattern="[0-9]" minlength="2" maxlength="2" class="form-control"></td>
+			</tr>
+			<tr style="color: black">
+				<td>Regno:</td>
+				<td><input type="text" name="vreg" value="{{ c.regno }}" required minlength="10" maxlength="10" class="form-control"></td>
+			</tr>
+			<tr style="color: black">
+                <tr style="color: black">
+				<td>Gender:</td>
+				<td><input type="radio" name="fml" value="{{ c.gender }}" checked>female
+					<input type="radio" name="fml" value="male">male
+                    <input type="radio" name="fml" value="other">other</td>
+			</tr>
+{#				<td>Gender:</td>#}
+{#				<td><input type="text" name="vgndr" value="{{ c.gender }}" required></td>#}
+{#			</tr>#}
+			<tr style="color: black">
+				<td>Year:</td>
+				<td><input type="text" name="vyr" value="{{ c.year }}" required class="form-control"></td>
+			</tr>
+			<tr style="color: black">
+				<td>Password:</td>
+				<td><input type="Password" name="vpswd" value="{{ c.password }}" required minlength="6" maxlength="8" class="form-control"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="vbtn" value="update" class="btn-dark" style="border-radius: 7px"></td>
+			</tr>
+
+</table>
+</form>
+</center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'temp/main_principal.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REPLY</title>
+</head>
+<body>
+<center>
+	<h1>REPLY DETAILS</h1>
+	<form method="post">
+        {% csrf_token %}
+		<table>
+			<tr>
+				<td style="color: black">Reply:</td>
+                <td><textarea name="rply" required class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="rebtn" value="submit"></td>
+			</tr>
+</table>
+</form>
+</center>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'temp/main_staff.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GALLERY</title>
+</head>
+<body>
+<center>
+	<h1>GALLERY</h1>
+		 <table border="2" class="table table-striped">
+			<tr>
+
+    		<td style="color: black">Name</td>
+    		<td style="color: black">Class</td>
+    		<td style="color: black">Event</td>
+    		<td style="color: black">Date</td>
+    		<td style="color: black">Images</td>
+    		<td style="color: black">Videos</td>
+            <td style="color:black">Status</td>
+    	
+    	</tr>
+            {% for i in x %}
+
+    	<tr style="color: white">
+    		<td>{{ i.volunteer.name }}</td>
+    		<td>{{ i.classes }}</td>
+    		<td>{{ i.event.e_name }}</td>
+    		<td>{{ i.date }}</td>
+            <td><a href="/static/{{ i.images }}"><img src="/static/{{ i.images }}" width="50" height="50"></a></td>
+            <td><a href="/static/{{ i.images2 }}"><img src="/static/{{ i.images2}}" width="50" height="50"></a></td>
+            <td><a href="/static/{{ i.images3}}"><img src="/static/{{ i.images3}}" width="50" height="50"></a></td>            <td><a href="/static/{{ i.videos }}">
+
+
+
+            <td><a href="/static/{{ i.videos }}">
+       <video controls="controls" width="100px;" height="100px;">
+           <source src="/static/{{ i.videos }}" type="video/mp4">
+       </video></a>
+    </td>
+            <td>{{ i.status }}</td>
+            {% if i.status == 'Accepted' %}
+            <td><a href="/vgallery/reject/{{ i.vgallery_id }}" class="btn btn-primary">REJECT</a></td>
+            {% elif i.status == 'Rejected' %}
+            <td><a href="/vgallery/accept/{{ i.vgallery_id }}" class="btn btn-primary">ACCEPT</a></td>
+            {% else %}
+            <td><a href="/vgallery/accept/{{ i.vgallery_id }}" class="btn btn-primary">ACCEPT</a></td>
+    		<td><a href="/vgallery/reject/{{ i.vgallery_id }}" class="btn btn-primary">REJECT</a></td>
+            {% endif %}
+
+    	</tr>
+            {% endfor %}
+
+			
+</table>
+</center>
+
+</body>
+</html>
+{% endblock %}
